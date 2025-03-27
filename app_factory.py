@@ -28,8 +28,8 @@ def create_flask_app_with_configs() -> RagApp:
 
 def initialize_extensions(app: RagApp):
     from extensions import (ext_blueprints, ext_celery, ext_database,
-                            ext_logging, ext_login, ext_redis, ext_storage,
-                            ext_timezone, ext_warnings)
+                            ext_logging, ext_login, ext_rbtrag, ext_redis,
+                            ext_storage, ext_timezone, ext_warnings)
 
     extensions = [
         ext_timezone,
@@ -41,6 +41,7 @@ def initialize_extensions(app: RagApp):
         ext_database,
         ext_login,
         ext_redis,
+        ext_rbtrag,
     ]
     for ext in extensions:
         short_name = ext.__name__.split(".")[-1]

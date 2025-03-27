@@ -52,7 +52,7 @@ class FileService:
         except Exception as e:
             # 根据实际情况记录日志或抛出更具体的异常
             raise Exception(f"保存文件失败: {e}")
-        pass
+        return file_path
 
     @staticmethod
     def upload_file(
@@ -105,7 +105,7 @@ class FileService:
         # save file to db
         upload_file = UploadFile(
             tenant_id=current_tenant_id or "",
-            storage_type=dify_config.STORAGE_TYPE,
+            storage_type=rag_config.STORAGE_TYPE,
             key=file_key,
             name=filename,
             size=file_size,
